@@ -1,9 +1,17 @@
+# I rename my x86_64-mingw32-gcc.exe to w-gcc
+# Runs in powershell
+CC = w-gcc 
+OUT = Snake.exe
+
 all: Snake.exe run
 
-Snake.exe: main.c
-	cls	
-	w-gcc $^ -o $@
+${OUT}: main.c
+	cls
+	${CC} $^ -o $@
 
 run:
-	.\main.exe
+	.\{OUT}
 	cls
+
+clean:
+	rm ${OUT}
