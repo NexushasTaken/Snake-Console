@@ -37,6 +37,8 @@ void enqueue(int y, int x)
 	}
 	queueLen++;	
 }
+
+// This will cause memory leaks? and also in 298-299?
 void dequeue()
 {
 	if(first == NULL || last == NULL)
@@ -44,6 +46,8 @@ void dequeue()
 	if(first == last)
 	{
 		free(first);
+		first = NULL;
+		last = NULL;
 	}
 	else
 	{
